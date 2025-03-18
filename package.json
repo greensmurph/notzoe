@@ -1,0 +1,28 @@
+{
+  "name": "tarotconcerto",
+  "version": "1.0.0",
+  "description": "Tarot Concerto - Gallery Defi",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node -e \"const fs=require('fs');const path=require('path');const rimraf=require('fs').rmSync;const assetsDir=path.resolve('dist/assets');const srcDir=path.resolve('dist/src');if(fs.existsSync(assetsDir)){fs.readdirSync(assetsDir).forEach(f=>fs.unlinkSync(path.join(assetsDir,f)));console.log('Assets directory cleared');}if(fs.existsSync(srcDir)){rimraf(srcDir, { recursive: true, force: true });console.log('dist/src directory removed');}\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tarot",
+    "gallery",
+    "music"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "howler": "^2.2.4",
+    "swiper": "^11.0.5"
+  },
+  "devDependencies": {
+    "glob": "^11.0.1",
+    "vite": "^5.0.10"
+  }
+}
