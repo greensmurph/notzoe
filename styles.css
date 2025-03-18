@@ -1,0 +1,305 @@
+/* Base styles */
+:root {
+    /* Dark theme (default) */
+    --dark-bg: #141414;
+    --dark-fg: #FFFFFF;
+    --dark-fg-rgb: 255, 255, 255;
+    
+    /* Light theme */
+    --light-bg: #F5F5F5;
+    --light-fg: #121212;
+    --light-fg-rgb: 18, 18, 18;
+    
+    /* Active theme (initially set to dark) */
+    --bgcolor: var(--dark-bg);
+    --fgcolor: var(--dark-fg);
+    --fgcolor-rgb: var(--dark-fg-rgb);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Light theme class that will be toggled on the body */
+body.light-theme {
+    --bgcolor: var(--light-bg);
+    --fgcolor: var(--light-fg);
+    --fgcolor-rgb: var(--light-fg-rgb);
+}
+
+body {
+    background-color: var(--bgcolor);
+    color: var(--fgcolor);
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    background-image: url('images/card_back.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed; /* Changed from absolute to fixed to cover entire scrollable area */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    filter: invert(0.85);
+    opacity: 0.7;
+    z-index: -1; /* Behind all content */
+    pointer-events: none; /* Allows clicking through the overlay */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Adjust background image for light theme */
+body.light-theme::before {
+    filter: invert(0); /* Remove inversion for light theme */
+    opacity: 0.9; /* Adjust opacity for light theme */
+}
+
+html, body {
+    min-height: 100vh; /* Change from fixed height to minimum height */
+}
+
+main {
+    min-height: calc(100vh - 60px); /* Account for footer height */
+    padding-bottom: 60px; /* Add padding to accommodate the footer */
+}
+
+header {
+    top: 0;
+    transition: all 150ms ease-in-out;
+    &:not(.scrolling) {
+        background-color: transparent;
+        padding-top: 20px;
+        transition: all 150ms ease-in-out;
+    }
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--fgcolor);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 20px;
+    scale: 0.7;
+    transform: translate(10px, 10px);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(var(--fgcolor-rgb), 0.1);
+}
+
+.theme-toggle svg,
+.theme-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.theme-toggle svg {
+    fill: var(--fgcolor);
+}
+
+.theme-toggle img {
+    filter: invert(1); /* Make the black SVG white in dark mode */
+    transition: filter 0.3s ease;
+}
+
+body.light-theme .theme-toggle img {
+    filter: invert(0); /* Keep the black SVG black in light mode */
+}
+
+/* Show/hide appropriate icon based on theme */
+.sun-icon { display: none; }
+.moon-icon { display: block; }
+
+body.light-theme .sun-icon { display: block; }
+body.light-theme .moon-icon { display: none; }
+header::before {
+    bottom: -5px; /* Position 5px above the footer */
+    background: linear-gradient(to top, rgba(var(--fgcolor-rgb), 0.05), var(--bgcolor));
+}
+header:not(.scrolling)::before { display: none; }
+
+footer { 
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative; /* For absolute positioning of the theme toggle */
+}
+footer::before {
+    top: -5px; /* Position 5px above the footer */
+    background: linear-gradient(to bottom, rgba(var(--fgcolor-rgb), 0.05), var(--bgcolor));
+}
+
+header::before, footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 5px; /* Height of the shadow effect */
+    pointer-events: none; /* Allows clicking through the shadow */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Title */
+.title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 120px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Paragraph */
+.paragraph {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    line-height: 1.33;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Spotify embed */
+.spotify-embed {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 80px; /* Increased from 40px to 80px for more space before footer */
+}
+
+.spotify-embed iframe {
+    box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+body.light-theme .spotify-embed iframe {
+    box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Social share */
+.social-share {
+    padding: 10px 0;
+}
+
+.list-social {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.list-social__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-social__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--fgcolor);
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.list-social__link:hover {
+    transform: scale(1.1);
+    background-color: rgba(var(--fgcolor-rgb), 0.15); /* 15% foreground color background on hover */
+}
+
+.list-social__link svg {
+    width: 30px;
+    height: 30px;
+}
+
+.list-social__link svg path,
+.list-social__link svg .cls-1 {
+    fill: var(--fgcolor);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.sticky-background {
+    background-color: var(--bgcolor);
+    position: sticky;
+    transition: all 150ms ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scrolling .title {
+        font-size: 60px;
+    }
+    .title {
+        font-size: 65px;
+    }
+    
+    .list-social {
+        gap: 20px;
+    }
+    
+    .list-social__link svg {
+        width: 25px;
+        height: 25px;
+    }
+    .spotify-embed iframe {
+        height: 520px;
+    }
+}
