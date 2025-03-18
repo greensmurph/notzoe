@@ -126,8 +126,6 @@ export class Carousel {
       return;
     }
     
-    console.log('Creating slides for carousel...');
-    
     tarotCards.forEach(card => {
       const slide = document.createElement('div');
       slide.className = 'swiper-slide';
@@ -141,18 +139,12 @@ export class Carousel {
           width="300"
           height="500"
           onerror="console.error('Failed to load image:', this.src)"
-          onload="console.log('Image loaded successfully:', this.src)"
         >
         <div class="swiper-lazy-preloader"></div>
       `;
       
-      // Log the image path for debugging
-      console.log(`Adding slide with image path: ${card.image}`);
-      
       swiperWrapper.appendChild(slide);
     });
-    
-    console.log('Slides created successfully!');
   }
   
   handleSlideChange() {

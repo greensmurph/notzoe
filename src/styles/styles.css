@@ -564,3 +564,10 @@ body.light-theme .spotify-embed iframe {
         height: 20px;
     }
 }
+
+.shameless-advertising {
+    opacity: 0.03;
+    position: absolute;
+    left: 10px;
+    right: auto;
+}
