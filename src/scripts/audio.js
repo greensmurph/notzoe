@@ -69,7 +69,6 @@ export class AudioPlayer {
           volumeSlider.classList.remove('muted');
         }
         
-        console.log(`Volume set to: ${this.volume * 100}%`);
       });
     }
     
@@ -98,7 +97,6 @@ export class AudioPlayer {
           // Update the slider value
           volumeSlider.value = this.volume * 100;
           
-          console.log(`Volume toggled to: ${this.volume * 100}%`);
         }
       });
     }
@@ -173,7 +171,6 @@ export class AudioPlayer {
     this.isPlaying = true;
     this.updatePlayPauseButton(true);
     
-    console.log(`Auto-playing track: ${track.name}`);
     
     // Prefetch upcoming audio
     this.prefetchUpcomingAudio(index);
@@ -188,13 +185,11 @@ export class AudioPlayer {
       format: ['mp3'], // Explicitly specify format
       onend: () => {
         // When track ends, wait 1 second before moving to the next slide
-        console.log(`Track ${track.name} ended. Waiting 1 second before moving to next slide.`);
         setTimeout(() => {
           this.carousel.nextSlide();
         }, 1000); // 1 second delay
       },
       onload: () => {
-        console.log(`Track ${track.name} loaded successfully`);
       },
       onloaderror: (id, error) => {
         console.error(`Error loading track ${track.name}:`, error);
