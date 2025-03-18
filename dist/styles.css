@@ -300,6 +300,6 @@ body.light-theme .spotify-embed iframe {
         height: 25px;
     }
     .spotify-embed iframe {
-        height: 520px;
+        /* height: 520px; */
     }
 }
