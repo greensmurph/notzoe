@@ -216,6 +216,13 @@ body.light-theme .spotify-embed iframe {
     box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.2);
 }
 
+.artist-title {
+    text-align: center;
+    h2 {
+        font-size: 35px;
+    }
+}
+
 /* Social share */
 .social-share {
     padding: 10px 0;
