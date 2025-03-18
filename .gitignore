@@ -65,6 +65,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
+dist/assets/*
 
 # Gatsby files
 .cache/
