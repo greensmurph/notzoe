@@ -529,7 +529,8 @@ body.light-theme .spotify-embed iframe {
     }
     
     .swiper-container {
-        max-width: 90%;
+        max-width: calc(100% + 40px);
+        width: 100vw;
     }
     
     .audio-player {

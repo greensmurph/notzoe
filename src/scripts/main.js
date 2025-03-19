@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   carousel.setAudioPlayer(audioPlayer);
   
   // Initialize theme toggle functionality
-  initThemeToggle();
+  // initThemeToggle();
   
   // Initialize scroll handling
   initScrollHandling();
@@ -29,25 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Theme toggle functionality
-function initThemeToggle() {
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
+// function initThemeToggle() {
+//   const themeToggle = document.getElementById('theme-toggle');
+//   const body = document.body;
   
-  // Check for saved theme preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    body.classList.add('light-theme');
-  }
+//   // Check for saved theme preference
+//   const savedTheme = localStorage.getItem('theme');
+//   if (savedTheme === 'light') {
+//     body.classList.add('light-theme');
+//   }
   
-  // Toggle theme when button is clicked
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light-theme');
+//   // Toggle theme when button is clicked
+//   themeToggle.addEventListener('click', () => {
+//     body.classList.toggle('light-theme');
     
-    // Save preference to localStorage
-    const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-    localStorage.setItem('theme', currentTheme);
-  });
-}
+//     // Save preference to localStorage
+//     const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+//     localStorage.setItem('theme', currentTheme);
+//   });
+// }
 
 // Scroll handling
 function initScrollHandling() {
