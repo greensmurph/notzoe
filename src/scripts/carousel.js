@@ -3,16 +3,16 @@ import { Navigation, Virtual, EffectCreative } from 'swiper/modules';
 
 // Tarot card data
 const tarotCards = [
-  { id: 0, name: 'The Fool', artist: 'Tarot Concerto', image: 'images/cards/the-fool.jpg', audio: 'audio/01.mp3' },
-  { id: 1, name: 'The Magician', artist: 'Tarot Concerto', image: 'images/cards/the-magician.jpg', audio: 'audio/02.mp3' },
-  { id: 2, name: 'The High Priestess', artist: 'Tarot Concerto', image: 'images/cards/the-high-priestess.jpg', audio: 'audio/03.mp3' },
-  { id: 3, name: 'The Empress', artist: 'Tarot Concerto', image: 'images/cards/the-empress.jpg', audio: 'audio/04.mp3' },
-  { id: 4, name: 'The Emperor', artist: 'Tarot Concerto', image: 'images/cards/the-emperor.jpg', audio: 'audio/05.mp3' },
-  { id: 5, name: 'The Hierophant', artist: 'Tarot Concerto', image: 'images/cards/the-hierophant.jpg', audio: 'audio/06.mp3' },
-  { id: 6, name: 'The Lovers', artist: 'Tarot Concerto', image: 'images/cards/the-lovers.jpg', audio: 'audio/07.mp3' },
-  { id: 7, name: 'The Chariot', artist: 'Tarot Concerto', image: 'images/cards/the-chariot.jpg', audio: 'audio/08.mp3' },
-  { id: 8, name: 'Strength', artist: 'Tarot Concerto', image: 'images/cards/strength.jpg', audio: 'audio/09.mp3' },
-  { id: 9, name: 'The Hermit', artist: 'Tarot Concerto', image: 'images/cards/the-hermit.jpg', audio: 'audio/10.mp3' }
+  { id: 0, name: 'The Fool', artist: '(0) Times Like These', image: 'images/cards/0-THE_FOOL.webp', audio: 'audio/01.mp3' },
+  { id: 1, name: 'The Magician', artist: '(1) Make Yourself', image: 'images/cards/1-THE_MAGICIAN.webp', audio: 'audio/02.mp3' },
+  { id: 2, name: 'The High Priestess', artist: '(5) Everlasting Light', image: 'images/cards/05-THE_HIEROPHANT.webp', audio: 'audio/03.mp3' },
+  { id: 3, name: 'The Empress', artist: '(6) All Shook Up', image: 'images/cards/06-THE_LOVERS.webp', audio: 'audio/04.mp3' },
+  { id: 4, name: 'The Emperor', artist: '(7) We Are the Champions', image: 'images/cards/07-THE_CHARIOT.webp', audio: 'audio/05.mp3' },
+  { id: 5, name: 'The Hierophant', artist: '(11) Get Up Stand Up', image: 'images/cards/11-JUSTICE.webp', audio: 'audio/06.mp3' },
+  { id: 6, name: 'The Lovers', artist: '(15) Heart-Shaped Box', image: 'images/cards/15-THE_DEVIL.webp', audio: 'audio/07.mp3' },
+  { id: 7, name: 'The Chariot', artist: '(17) Tonight, Tonight', image: 'images/cards/17-THE_STAR.webp', audio: 'audio/08.mp3' },
+  { id: 8, name: 'Strength', artist: '(20) Bad Moon Rising', image: 'images/cards/20-JUDGEMENT.webp', audio: 'audio/09.mp3' },
+  { id: 9, name: 'The Hermit', artist: '(21) Do You Realize??', image: 'images/cards/21-THE_WORLD.webp', audio: 'audio/10.mp3' }
 ];
 
 export class Carousel {
