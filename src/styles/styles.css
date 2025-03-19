@@ -39,13 +39,12 @@ body {
     position: relative;
 }
 
-body::before {
-    content: "";
+.background-image {
     background-image: url('../images/card_back.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: fixed; /* Changed from absolute to fixed to cover entire scrollable area */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -54,15 +53,15 @@ body::before {
     height: 100%;
     filter: invert(0.85);
     opacity: 0.7;
-    z-index: -1; /* Behind all content */
-    pointer-events: none; /* Allows clicking through the overlay */
+    z-index: -1;
+    pointer-events: none;
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 /* Adjust background image for light theme */
-body.light-theme::before {
-    filter: invert(0); /* Remove inversion for light theme */
-    opacity: 0.9; /* Adjust opacity for light theme */
+body.light-theme .background-image {
+    filter: invert(0);
+    opacity: 0.9;
 }
 
 html, body {
